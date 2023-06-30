@@ -1,0 +1,15 @@
+resourceType: DeviceTree
+resources:
+  - attributes:
+      - attributeTags: {}
+        dataType: boolean
+        name: lixocheio
+      - attributeTags: {}
+        dataType: number
+        name: nivel
+    children: []
+    deviceClass: standalone
+    id: ~exportplaceholderid-device-lixeiraIoT-0~
+    name: Lixeira_IoT
+    tags: []
+version: 1

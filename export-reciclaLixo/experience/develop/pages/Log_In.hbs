@@ -1,0 +1,40 @@
+{{#fillSection "metaDescription"}}This is an example login page for your application experience.{{/fillSection}}
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+      <div class="mx-auto mb-4 text-center" style="max-width: 1000px;">
+        <img class="img-fluid" src="https://www.cietec.org.br/wp-content/uploads/2020/08/logo-senai.png" alt="Big Logo">
+      </div>
+      <div class="card bg-light mb-3">
+        <div class="card-body">
+          <p class="card-text">
+            BEM VINDO!
+          </p>
+          <p class="card-text">
+            Faça login abaixo com seu usuário de exemplo 
+            para acessar a plataforma.
+          </p>
+        <div class="card bg-light mb-3">
+          <p class="card-text">
+            SENAI SP - SOLUÇÕES INTEGRADAS EM IoT
+          </p>
+    
+         </div>
+      </div>
+      {{#if pageData.loginFailure}}
+        {{component "errorAlert" "Email ou senha incorretos."}}
+      {{/if}}
+      <form method="post">
+        <div class="form-group">
+          <label for="email">Endereço de Email</label>
+          <input autofocus required value="{{ pageData.email }}" type="email" class="form-control" name="email" id="email" placeholder="seuemail@email.com">
+        </div>
+        <div class="form-group">
+          <label for="password">Senha</label>
+          <input required minlength="8" maxlength="255" type="password" class="form-control" id="password" name="password">
+        </div>
+        <button type="submit" class="btn btn-success">Entrar</button>
+      </form>
+    </div>
+  </div>
+</div>

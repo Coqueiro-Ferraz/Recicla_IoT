@@ -1,0 +1,10 @@
+resourceType: Application
+resources:
+  - blobUrlTTL: 86400
+    description: Plataforma IoT de monitoramento de Lixeiras Inteligentes
+    filesPath: ./files
+    globals: []
+    id: ~exportplaceholderid-application-reciclaLixo-0~
+    name: ReciclaLixo
+    readmePath: ./README.md
+version: 1

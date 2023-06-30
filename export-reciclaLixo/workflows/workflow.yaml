@@ -1,0 +1,129 @@
+resourceType: Flow
+resources:
+  - description: ''
+    flowClass: cloud
+    globals: []
+    id: ~exportplaceholderid-flow-workflow-2~
+    name: workflow
+    nodes:
+      - config:
+          expression: '{{data.nivel}} > 85'
+        id: HD565gwtx8
+        meta:
+          category: logic
+          description: ''
+          label: Conditional
+          name: conditional
+          x: 360
+          'y': 440
+        outputIds:
+          - []
+          - - 1O4FzoYdXj
+            - JeiRTxFCk8
+            - QoT99cKDZl
+        type: ConditionalNode
+      - config:
+          bodyTemplate: O nível máximo da Lixeira IoT está próximo do limite!!
+          phoneNumberTemplate: '+5518996412041'
+          resultPath: ''
+        id: QoT99cKDZl
+        meta:
+          category: output
+          description: ''
+          label: SMS
+          name: structure-sms
+          x: 460
+          'y': 600
+        outputIds: []
+        type: StructureSmsNode
+      - config:
+          bodyTemplate: |
+            <!doctype html>
+            <html>
+              <head>
+                <title></title>
+                <meta name="viewport" content="width=device-width" />
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+              </head>
+              <body>
+                <div>O nível máximo da Lixeira IoT está próximo do limite! {{data.emailBody}}</div>
+              </body>
+            </html>
+          fromTemplate: ''
+          resultPath: ''
+          subjectTemplate: Alarme - Lixeira IoT
+          toAddresses:
+            - luiz.guimaraes@sp.senai.br
+        id: 1O4FzoYdXj
+        meta:
+          category: output
+          description: ''
+          label: Email
+          name: structure-email
+          x: 260
+          'y': 600
+        outputIds: []
+        type: StructureEmailNode
+      - config:
+          level: verbose
+          message: ''
+          property: ''
+        id: JeiRTxFCk8
+        meta:
+          category: debug
+          description: ''
+          label: Debug
+          name: debug
+          x: 660
+          'y': 600
+        outputIds: []
+        type: DebugNode
+    triggers:
+      - config: {}
+        key: ~exportplaceholderid-device-lixeiraIoT-0~
+        meta:
+          category: trigger
+          description: ''
+          label: 'Device: Connect'
+          name: deviceIdsTagsConnect
+          uiId: mWhpM6FlW8
+          x: 220
+          'y': 280
+        outputIds:
+          - - HD565gwtx8
+        type: deviceIdConnect
+      - config:
+          attributeWhitelist:
+            - nivel
+          batchBehavior: each
+          triggerOn: both
+        key: ~exportplaceholderid-device-lixeiraIoT-0~
+        meta:
+          category: trigger
+          description: ''
+          label: 'Device: State'
+          name: deviceIdsTags
+          timeUnit: '1'
+          uiId: OTpOSEYCok
+          x: 460
+          'y': 280
+        outputIds:
+          - - HD565gwtx8
+        type: deviceId
+      - config: {}
+        key: ~exportplaceholderid-flow-workflow-2~-tHlup_gewKwVaA2DjhimQ
+        meta:
+          category: trigger
+          description: ''
+          label: Virtual Button
+          name: virtualButton
+          payload: ''
+          uiId: B20Kdqr1TL
+          x: 140
+          'y': 440
+        outputIds:
+          - - 1O4FzoYdXj
+            - QoT99cKDZl
+            - JeiRTxFCk8
+        type: virtualButton
+version: 1

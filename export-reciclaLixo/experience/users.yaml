@@ -1,0 +1,15 @@
+resourceType: ExperienceUser
+resources:
+  - email: aluno@aluno.com
+    experienceGroupIds: []
+    id: ~exportplaceholderid-experienceUser-alunoAlunoCom-1~
+    userTags:
+      86a55bc9-5840-498c-9412-56a57c47fb04: 1f96b5031c347dec3f6aa09843fb30338036105c9caedf3b0ce7b0a3c7151571
+  - email: test.user@example.com
+    experienceGroupIds:
+      - ~exportplaceholderid-experienceGroup-myExampleGroup-0~
+    firstName: Test
+    id: ~exportplaceholderid-experienceUser-testUserExampleCom-0~
+    lastName: User
+    userTags: {}
+version: 1

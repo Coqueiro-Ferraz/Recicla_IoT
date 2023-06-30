@@ -1,0 +1,133 @@
+resourceType: Dashboard
+resources:
+  - blocks:
+      - applicationId: ~exportplaceholderid-application-reciclaLixo-0~
+        blockType: image-overlay
+        config:
+          backgroundColor: transparent
+          defaultZoom: -2.3333
+          imageUrl: >-
+            https://~exportplaceholderid-app-url~/images/image-overlay-example.png
+          overlays:
+            - backgroundColor: '#ffffff'
+              conditions:
+                - color: 'rgba(191, 115, 28, 1)'
+                  condition: '{{gauge-0.value}} > 75 '
+                  id: 6U7xtlsFEk
+              defaultCondition:
+                color: '#8db319'
+              length: 4
+              max: '100'
+              min: '0'
+              orientation: horizontal
+              popupTemplate: ''
+              position: '743,1048'
+              size: medium
+              type: bar
+              valueTemplate: '{{gauge-0.value}}'
+            - conditions: []
+              defaultCondition:
+                imageUrl: '{{colorMarker ''#8db319''}}'
+              popupTemplate: ''
+              position: '718,1314'
+              size: medium
+              type: image
+          segments:
+            - aggregation:
+                options: {}
+                type: LAST
+              attribute: lixocheio
+              deviceIds:
+                - ~exportplaceholderid-device-lixeiraIoT-0~
+              deviceTags: []
+              duration: 0
+              id: gauge-1
+              queryType: gauge
+            - aggregation:
+                options: {}
+                type: LAST
+              attribute: nivel
+              deviceIds:
+                - ~exportplaceholderid-device-lixeiraIoT-0~
+              deviceTags: []
+              duration: 0
+              id: gauge-0
+              queryType: gauge
+        height: 2
+        id: AqXvf03ozh
+        startX: 1
+        startY: 0
+        title: Localização das Lixeiras Inteligentes
+        width: 3
+      - applicationId: ~exportplaceholderid-application-reciclaLixo-0~
+        blockType: gauge
+        config:
+          conditions:
+            - color: 'rgba(157, 127, 123, 1)'
+              condition: '{{value}} > 75'
+              id: mqVuXc79JY
+          displayAsPercentage: false
+          duration: 0
+          gaugeMax: '100'
+          gaugeMin: '0'
+          gaugeType: tank
+          precision: '4'
+          precisionType: significant
+          realTime: false
+          segment:
+            aggregation:
+              options: {}
+              type: LAST
+            attribute: nivel
+            color: 'rgba(156, 243, 11, 0.77)'
+            deviceIds:
+              - ~exportplaceholderid-device-lixeiraIoT-0~
+            deviceTags: []
+            expression: ''
+            label: '%'
+        height: 1
+        id: ipCyIQ8367
+        startX: 0
+        startY: 0
+        title: Nível de Lixo na Lixeira
+        width: 1
+      - applicationId: ~exportplaceholderid-application-reciclaLixo-0~
+        blockType: indicator
+        config:
+          conditions:
+            - color: 'rgba(141, 179, 25, 1)'
+              condition: '{{value}} > 85'
+              id: 9HoWnypifb
+              label: O Nível está próximo do volume máximo!
+            - color: 'rgba(191, 115, 28, 1)'
+              condition: '{{value}} > 95'
+              id: WSce89J8Q7
+              label: A Lixeira necessita ser esvaziada!
+          defaultCondition:
+            color: 'rgba(130, 91, 255, 1)'
+            label: Nível de Lixo Normal
+          duration: 0
+          segments:
+            - aggregation:
+                options: {}
+                type: LAST
+              attribute: nivel
+              deviceIds:
+                - ~exportplaceholderid-device-lixeiraIoT-0~
+              deviceTags: []
+        height: 1
+        id: eNUV6BzBBQ
+        startX: 0
+        startY: 1
+        title: Volume
+        width: 1
+    contextConfiguration: []
+    defaultTheme: light
+    description: ''
+    duration: 3600000
+    id: ~exportplaceholderid-dashboard-lixeirasInteligentes-0~
+    name: Lixeiras Inteligentes
+    public: false
+    refreshRate: 5
+    resolution: 60000
+version: 1
